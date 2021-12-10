@@ -27,6 +27,10 @@ class App extends React.Component {
     this.setState({applist: mylist})
   }
 
+  loadGraph = () => {
+    this.setState({applist: []})
+  }
+
   render() {
     return (
       <div className="App">
