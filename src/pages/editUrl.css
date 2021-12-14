@@ -1,0 +1,32 @@
+.App_two {
+    padding: 1rem;
+    height: 80vh;
+    margin: 0 auto;
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 50vw;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.save-btn {
+    background-color: #39bb7d;
+}
+
+.cancel-btn {
+    background-color: #f34440;
+}
+
+.home-btn {
+    background-color: #aa480f;
+}
+
+.edit-btn {
+    background-color: #2d6adb;
+}
