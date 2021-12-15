@@ -32,7 +32,7 @@ function UrlDetails() {
                     <tr>
                       <th width="30%">Short URL</th>
                       <td width="2%">:</td>
-                      <td>{details.ShortUrl}</td>
+                      <td>{window.location.origin+'/'+details.ShortUrl}</td>
                     </tr>
                     <tr>
                       <th width="30%">Long URL</th>

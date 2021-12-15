@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import { getLongUrl } from "../graphql/queries";
@@ -16,6 +16,7 @@ Amplify.configure(myAppConfig);
 
 function UrlRedirect() {
   const params = useParams();
+  const [text, setText] = useState('Redirecting....')
   const shortUrl = params.shorturl;
   useEffect(() => {
     getLongUrlWrapper(shortUrl);
@@ -27,11 +28,17 @@ function UrlRedirect() {
     );
     console.log(res.data);
     const data = JSON.parse(res.data.getLongtUrl);
-    const longUrl = data[0].LongUrl;
-    window.location.assign(longUrl);
-
+    if(data.length === 0) {
+      setText('ERROR 404: Page Not Found')
+    }
+    else {
+      let longUrl = data[0].LongUrl;
+      if(!longUrl.startsWith("https://"))
+        longUrl = "https://"+longUrl
+      window.location.assign(longUrl);
+    }
   };
-  return <h1>Redirecting...</h1>;
+  return <h1>{text}</h1>;
 }
 
 export default UrlRedirect;

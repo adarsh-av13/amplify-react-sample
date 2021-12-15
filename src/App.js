@@ -117,6 +117,7 @@ class App extends React.Component {
   async componentDidMount() {
     const data = await this.getUrls();
     this.setState({ applist: data });
+    console.log(window.location)
   }
 
   render() {
@@ -147,12 +148,12 @@ class App extends React.Component {
               <th>
                 <h1>ShortUrl</h1>
               </th>
-              {/* <th>
-                <h1>LongUrl</h1>
-              </th> */}
               <th>
-                <h1>CreatedBy</h1>
+                <h1>LongUrl</h1>
               </th>
+              {/* <th>
+                <h1>CreatedBy</h1>
+              </th> */}
               <th>
                 <h1>Actions</h1>
               </th>
@@ -162,7 +163,7 @@ class App extends React.Component {
             {this.state.applist.map((d) => (
               <tr key={d.ShortUrl}>
                   
-                <td><Link to="/url-details" state={{ data: d }}>{d.ShortUrl}</Link></td>
+                <td><Link  className="pink-text" to="/url-details" state={{ data: d }}>{window.location.origin+'/'+d.ShortUrl}</Link></td>
                 <td><Link to="/url-details" state={{ data: d }}>{d.LongUrl}</Link></td>
                 {/* <td>{d.CreatedBy}</td> */}
                 <td className="actions">
