@@ -164,7 +164,7 @@ class App extends React.Component {
                   
                 <td><Link to="/url-details" state={{ data: d }}>{d.ShortUrl}</Link></td>
                 <td><Link to="/url-details" state={{ data: d }}>{d.LongUrl}</Link></td>
-                <td>{d.CreatedBy}</td>
+                {/* <td>{d.CreatedBy}</td> */}
                 <td className="actions">
                   <Link to="/edit-url-details" state={{ data: d }}>
                     <button
