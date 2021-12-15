@@ -147,9 +147,9 @@ class App extends React.Component {
               <th>
                 <h1>ShortUrl</h1>
               </th>
-              <th>
+              {/* <th>
                 <h1>LongUrl</h1>
-              </th>
+              </th> */}
               <th>
                 <h1>CreatedBy</h1>
               </th>
