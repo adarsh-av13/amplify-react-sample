@@ -1,6 +1,6 @@
 export const getAllUrls = `
-    query MyQuery {
-        getAllUrlByUser(CreatedBy: "av")
+    query MyQuery($createdBy: String!) {
+        getAllUrlByUser(CreatedBy: $createdBy)
     }
 `
 
