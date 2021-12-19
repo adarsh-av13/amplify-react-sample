@@ -7,6 +7,7 @@ import UrlDetails from './pages/urlDetails';
 import UrlRedirect from './pages/urlRedirect';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import CreateUrl from './pages/createUrl';
 
 
 ReactDOM.render(
@@ -16,6 +17,7 @@ ReactDOM.render(
         {/* <Route path="/" element={ <Login /> } /> */}
         <Route path="/" element={ <App /> } />
         <Route path="/edit-url-details" element={ <EditUrlDetails /> } />
+        <Route path="/create-url" element={ <CreateUrl /> } />
         <Route path="/url-details" element={ <UrlDetails /> } />
         <Route path="/:shorturl" element={ <UrlRedirect /> } />
       </Routes>

@@ -63,7 +63,7 @@ function UrlDetails() {
                       <th>Description</th>
                       <td width="2%">:</td>
                       <td>
-                        details.description
+                        {details.Description}
                       </td>
                     </tr>
                   </table>

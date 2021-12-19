@@ -18,6 +18,7 @@ Amplify.configure(myAppConfig);
 
 function EditUrlDetails() {
   const details = useLocation().state.data;
+  console.log(details)
   const navigate = useNavigate()
   const [description, setDescription] = useState(details.Description);
   

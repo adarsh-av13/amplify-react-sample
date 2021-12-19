@@ -1,0 +1,64 @@
+@use postcss-preset-env {
+  stage: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 20vw;
+  flex-wrap: wrap;
+}
+.form > input {
+  margin: 0.5rem;
+}
+
+.ctextarea {
+  margin: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+.cspan {
+    /* font-size: 2rem; */
+    padding: 1rem;
+}
+.cinput {
+  border: none;
+  background: hsl(0 0% 93%);
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+}
+
+.cbutton {
+  background: hotpink;
+  color: white;
+  box-shadow: 0 0.75rem 0.5rem -0.5rem hsl(0 50% 80%);
+}
+
+.ctag-wrapper {
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.ctags {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    color: blue;
+    margin: 0.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.4rem;
+    border-radius: 5px;
+}
+
+
+.remove-x {
+    color: red;
+    margin-left: 1rem;
+    display: inline;
+    font-size: 0.8rem;
+    
+}
+
+.remove-x:hover {
+    cursor: pointer;
+}
