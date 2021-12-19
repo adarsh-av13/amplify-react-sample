@@ -161,7 +161,7 @@ class UrlList extends React.Component {
                     to="/url-details"
                     state={{ data: d }}
                   >
-                    {window.location.origin + "/" + d.ShortUrl}
+                    {d.ShortUrl}
                   </Link>
                 </td>
                 <td>

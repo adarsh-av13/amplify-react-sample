@@ -15,9 +15,9 @@ const myAppConfig = {
 Amplify.configure(myAppConfig);
 
 function UrlRedirect() {
-  const params = useParams();
   const [text, setText] = useState('Redirecting....')
-  const shortUrl = params.shorturl;
+  const shortUrl = window.location;
+  console.log(shortUrl)
   useEffect(() => {
     getLongUrlWrapper(shortUrl);
   });
