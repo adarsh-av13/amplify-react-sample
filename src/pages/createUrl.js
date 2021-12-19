@@ -16,13 +16,13 @@ import "./createUrl.css";
 // Amplify.configure(myAppConfig);
 
 function CreateUrl() {
-  //   const details = useLocation().state.data;
+  const details = useLocation().state.data;
   const navigate = useNavigate();
   const [longUrl, setLongUrl] = useState("");
   const [description, setDescription] = useState("");
   const [curTag, setCurTag] = useState("");
   const [tags, setTags] = useState([]);
-  const user = "adarsh.vijay@cloudwick.com";
+  const user = details.user;
 
   const handleUrlChange = (event) => {
     setLongUrl(event.target.value);
