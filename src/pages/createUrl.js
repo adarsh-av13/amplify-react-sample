@@ -102,7 +102,7 @@ function CreateUrl() {
       <input
         className="cinput"
         type="text"
-        placeholder="Tags"
+        placeholder="Tag (Press Enter after adding each tag)"
         value={curTag}
         onChange={handleTagChange}
         onKeyDown={_handleKeyDown}

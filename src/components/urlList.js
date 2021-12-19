@@ -82,6 +82,9 @@ class UrlList extends React.Component {
       applist: this.state.applist.filter(function (appitem) {
         return appitem.ShortUrl !== d.ShortUrl;
       }),
+      displaylist: this.state.displaylist.filter(function (appitem) {
+        return appitem.ShortUrl !== d.ShortUrl;
+      }),
     });
   };
 
