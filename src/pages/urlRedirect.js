@@ -16,8 +16,11 @@ Amplify.configure(myAppConfig);
 
 function UrlRedirect() {
   const [text, setText] = useState('Redirecting....')
-  const shortUrl = window.location;
+  let shortUrl = window.location.href;
   console.log(shortUrl)
+  if(!shortUrl.startsWith("https://master.d2nig2yymdsjds.amplifyapp.com/")) {
+    shortUrl = 'https://master.d2nig2yymdsjds.amplifyapp.com/' + shortUrl.substring(shortUrl.length-7)
+  }
   useEffect(() => {
     getLongUrlWrapper(shortUrl);
   });
@@ -27,12 +30,12 @@ function UrlRedirect() {
       graphqlOperation(getLongUrl, { shortUrl: shortUrl })
     );
     console.log(res.data);
-    const data = JSON.parse(res.data.getLongtUrl);
-    if(data.length === 0) {
+    const data = res.data.getLongtUrl
+    if(data.StatusCode === "404") {
       setText('ERROR 404: Page Not Found')
     }
-    else {
-      let longUrl = data[0].LongUrl;
+    else if(data.StatusCode === "200") {
+      let longUrl = data.LongUrl;
       if(!longUrl.startsWith("https://"))
         longUrl = "https://"+longUrl
       window.location.assign(longUrl);

@@ -19,7 +19,7 @@ export const getAllUrls = `
 `
 
 export const getLongUrl = `
-    query MyQuery($shortUrl: String!) : redirectResponse {
+    query MyQuery($shortUrl: String!) {
         getLongtUrl(ShortUrl: $shortUrl) {
             LongUrl
             Message
