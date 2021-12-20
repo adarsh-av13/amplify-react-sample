@@ -62,3 +62,14 @@
 .remove-x:hover {
     cursor: pointer;
 }
+
+.header-row {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-row h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}

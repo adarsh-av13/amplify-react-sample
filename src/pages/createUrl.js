@@ -74,15 +74,20 @@ function CreateUrl() {
       console.log("SET");
       navigate("/url-details", {
         state: {
-          data: res.data.createShortUrl.Attributes
+          data: res.data.createShortUrl.Attributes,
         },
-        replace: true
+        replace: true,
       });
     }
   };
   return (
     <div class="form">
-      <h1>Create URL</h1>
+      <div class="header-row">
+        <h1>Create URL</h1>
+        <Link to="/">
+          <button className="home-btn">home</button>
+        </Link>
+      </div>
       <input
         className="cinput"
         type="url"
