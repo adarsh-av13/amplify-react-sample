@@ -67,7 +67,10 @@ function CreateUrl() {
     console.log(res.data);
     console.log(res.data.createShortUrl);
     if (res.data.createShortUrl.StatusCode === "400") {
-      alert("Error: Invalid URL. Enter only cloudwick or amorphic domain URLs");
+      if(res.data.createShortUrl.Message === "Invalid Url")
+        alert("Error: Invalid URL. Enter only cloudwick or amorphic domain URLs");
+      else
+        alert("Error: Description cannot be empty");
       return;
     }
     if (res.data.createShortUrl.StatusCode === "200") {

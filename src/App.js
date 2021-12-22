@@ -14,7 +14,7 @@ const myAppConfig = {
   aws_appsync_graphqlEndpoint: process.env.REACT_APP_API_URL,
   aws_appsync_region: "us-east-1",
   aws_appsync_authenticationType: "API_KEY",
-  aws_appsync_authenticationType: process.env.REACT_APP_API_KEY,
+  aws_appsync_authenticationKey: process.env.REACT_APP_API_KEY,
   // ...
 };
 
@@ -77,8 +77,8 @@ class App extends React.Component {
       applist: [],
       user: null,
       token: null,
+      display: <p> Loading </p>
     };
-    let display = <p> Loading </p>;
   }
 
   async componentDidMount() {
@@ -107,15 +107,12 @@ class App extends React.Component {
         };
         console.log(awsConfig);
         Amplify.configure(awsConfig);
-        this.setState({ token: g_header });
+        this.setState({ token: g_header, display : <UrlList user={this.state.user} /> });
       })
       .catch((err) => console.log("Not signed in"));
   }
 
   render() {
-    if (this.state.token) {
-      this.display = <UrlList user={this.state.user} />;
-    }
     return (
       <>
         {this.state.user ? (
@@ -137,7 +134,7 @@ class App extends React.Component {
                 <button>Create Short URL</button>
               </Link>
             </header>
-            {this.display}
+            {this.state.display}
           </div>
         ) : (
           <button onClick={() => Auth.federatedSignIn()}>
