@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import { getLongUrl } from "../graphql/queries";
 

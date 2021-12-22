@@ -1,19 +1,8 @@
 import React, { useState } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { createShortUrl } from "../graphql/mutations";
-import Amplify, { API, graphqlOperation } from "aws-amplify";
+import { API, graphqlOperation } from "aws-amplify";
 import "./createUrl.css";
-
-// const myAppConfig = {
-//   // ...
-//   aws_appsync_graphqlEndpoint: process.env.REACT_APP_API_URL,
-//   aws_appsync_region: "us-east-1",
-//   aws_appsync_authenticationType: "API_KEY",
-//   aws_appsync_apiKey: process.env.REACT_APP_API_KEY,
-//   // ...
-// };
-
-// Amplify.configure(myAppConfig);
 
 function CreateUrl() {
   const details = useLocation().state.data;

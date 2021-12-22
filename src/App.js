@@ -1,21 +1,13 @@
 import React from "react";
 import "./App.css";
-import Amplify, { API, graphqlOperation, Auth, Hub } from "aws-amplify";
-import { getAllUrls } from "./graphql/queries";
+import Amplify, { Auth, Hub } from "aws-amplify";
 import { Link } from "react-router-dom";
 import UrlList from "./components/urlList";
-import {
-  createShortUrl,
-  deleteShortUrl,
-  renewShortUrl,
-} from "./graphql/mutations";
+
 const myAppConfig = {
-  // ...
   aws_appsync_graphqlEndpoint: process.env.REACT_APP_API_URL,
   aws_appsync_region: "us-east-1",
   aws_appsync_authenticationType: "AMAZON_COGNITO_USER_POOLS",
-  // aws_appsync_authenticationKey: process.env.REACT_APP_API_KEY,
-  // ...
 };
 
 // Amplify.configure(myAppConfig);
@@ -42,7 +34,6 @@ console.log(localRedirectSignIn, productionRedirectSignIn);
 
 const awsConfig = {
   Auth: {
-    // identityPoolId: 'XX-XXXX-X:XXXXXXXX-XXXX-1234-abcd-1234567890ab',
     region: process.env.REACT_APP_REGION,
     userPoolId: process.env.REACT_APP_USER_POOL_ID,
     userPoolWebClientId: process.env.REACT_APP_USER_POOL_WEB_CLIENT_ID,
@@ -98,20 +89,7 @@ class App extends React.Component {
 
     Auth.currentAuthenticatedUser()
       .then(async (user) => {
-        console.log(user.signInUserSession.idToken.payload.email);
         this.setState({ user: user.signInUserSession.idToken.payload.email });
-        const currentSession = await Auth.currentSession();
-        const g_header = { Authorization: currentSession.idToken.jwtToken };
-        awsConfig.Auth = {
-          ...awsConfig.Auth,
-          graphql_headers: g_header,
-        };
-        console.log(Amplify);
-        Amplify.configure(awsConfig);
-        this.setState({
-          token: g_header,
-          display: <UrlList user={this.state.user} />,
-        });
       })
       .catch((err) => console.log("Not signed in"));
   }
@@ -138,7 +116,7 @@ class App extends React.Component {
                 <button>Create Short URL</button>
               </Link>
             </header>
-            {this.state.display}
+            <UrlList user={this.state.user} />
           </div>
         ) : (
           <button onClick={() => Auth.federatedSignIn()}>
