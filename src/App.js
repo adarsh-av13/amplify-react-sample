@@ -13,12 +13,12 @@ const myAppConfig = {
   // ...
   aws_appsync_graphqlEndpoint: process.env.REACT_APP_API_URL,
   aws_appsync_region: "us-east-1",
-  aws_appsync_authenticationType: "API_KEY",
-  aws_appsync_authenticationKey: process.env.REACT_APP_API_KEY,
+  aws_appsync_authenticationType: "AMAZON_COGNITO_USER_POOLS",
+  // aws_appsync_authenticationKey: process.env.REACT_APP_API_KEY,
   // ...
 };
 
-Amplify.configure(myAppConfig);
+// Amplify.configure(myAppConfig);
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
@@ -77,11 +77,12 @@ class App extends React.Component {
       applist: [],
       user: null,
       token: null,
-      display: <p> Loading </p>
+      display: <p> Loading </p>,
     };
   }
 
   async componentDidMount() {
+    Amplify.configure(myAppConfig);
     Hub.listen("auth", async ({ payload: { event, data } }) => {
       switch (event) {
         case "signIn":
@@ -105,9 +106,12 @@ class App extends React.Component {
           ...awsConfig.Auth,
           graphql_headers: g_header,
         };
-        console.log(awsConfig);
+        console.log(Amplify);
         Amplify.configure(awsConfig);
-        this.setState({ token: g_header, display : <UrlList user={this.state.user} /> });
+        this.setState({
+          token: g_header,
+          display: <UrlList user={this.state.user} />,
+        });
       })
       .catch((err) => console.log("Not signed in"));
   }
