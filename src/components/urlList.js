@@ -97,6 +97,10 @@ class UrlList extends React.Component {
         createdBy: d.CreatedBy,
       })
     );
+    if(res.data.renewUrl.StatusCode === '400')
+      alert("ERROR: Cannot renew URL having more than 30 days validity")
+    else
+      alert("Renewal Successful")
     console.log(res);
   };
 
