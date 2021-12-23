@@ -8,7 +8,7 @@
 }
 
 table {
-    width: 50vw;
+    width: 55vw;
 }
 .card-header {
     display: flex;
@@ -30,3 +30,15 @@ table {
 .edit-btn {
     background-color: #2d6adb;
 }
+
+.ceinput {
+    border: none;
+    background: hsl(0 0% 93%);
+    border-radius: 0.25rem;
+    padding: 0.75rem 1rem;
+    width: 85%;
+  }
+
+  textarea {
+      width: 90%;
+  }

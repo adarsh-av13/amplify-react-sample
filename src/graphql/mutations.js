@@ -1,6 +1,8 @@
 export const createShortUrl = `
-    mutation MyMutation($createdBy: String!, $longUrl: String!, $description: String!, $tags: [String!]) {
-        createShortUrl(CreatedBy: $createdBy, LongUrl: $longUrl, Description: $description, Tags: $tags) {
+    mutation MyMutation($createdBy: String!, $longUrl: String!, $description: String!, $tags: [String!], $customUrlFlag: Boolean,
+		$customUrl: String) {
+        createShortUrl(CreatedBy: $createdBy, LongUrl: $longUrl, Description: $description, Tags: $tags, CustomUrlFlag: $customUrlFlag,
+            CustomUrl: $customUrl) {
             Message
             StatusCode
             Attributes {
@@ -36,8 +38,8 @@ export const renewShortUrl = `
     }
 `;
 export const editDescription = `
-    mutation MyMutation($createdBy: String!, $longUrl: String!, $description: String!) {
-        editDescription(CreatedBy: $createdBy, LongUrl: $longUrl, Description: $description) {
+    mutation MyMutation($createdBy: String!, $longUrl: String!, $description: String!, $tags: [String!]) {
+        editDescription(CreatedBy: $createdBy, LongUrl: $longUrl, Description: $description, Tags: $tags) {
             Message
             StatusCode
         }

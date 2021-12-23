@@ -6,8 +6,8 @@ const myAppConfig = {
   // ...
   aws_appsync_graphqlEndpoint: process.env.REACT_APP_API_URL,
   aws_appsync_region: "us-east-1",
-  aws_appsync_authenticationType: "API_KEY",
-  aws_appsync_apiKey: process.env.REACT_APP_API_KEY,
+  aws_appsync_authenticationType: "AMAZON_COGNITO_USER_POOLS",
+  // aws_appsync_apiKey: process.env.REACT_APP_API_KEY,
   // ...
 };
 
@@ -18,8 +18,9 @@ function UrlRedirect() {
   let shortUrl = window.location.href;
   console.log(shortUrl)
   if(!shortUrl.startsWith("https://master.d2nig2yymdsjds.amplifyapp.com/")) {
-    shortUrl = 'https://master.d2nig2yymdsjds.amplifyapp.com/' + shortUrl.substring(shortUrl.length-7)
+    shortUrl = 'https://master.d2nig2yymdsjds.amplifyapp.com/' + shortUrl.substring(22)
   }
+  console.log(shortUrl)
   useEffect(() => {
     getLongUrlWrapper(shortUrl);
   });
@@ -35,8 +36,10 @@ function UrlRedirect() {
     }
     else if(data.StatusCode === "200") {
       let longUrl = data.LongUrl;
+      console.log(longUrl)
       if(!longUrl.startsWith("https://"))
         longUrl = "https://"+longUrl
+      console.log(longUrl)
       window.location.assign(longUrl);
     }
   };

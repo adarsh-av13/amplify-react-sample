@@ -73,3 +73,19 @@
   font-size: 2rem;
   font-weight: bold;
 }
+
+.cerow {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* padding: 1rem; */
+}
+
+.cerow input[type="text"] {
+  width: 50%;
+}
+
+input[type="text"]:disabled {
+  background: #aaaaaa;
+}
