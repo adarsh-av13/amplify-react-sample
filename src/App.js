@@ -23,7 +23,7 @@ const isLocalhost = Boolean(
 );
 
 const redirectUrl =
-    "http://localhost:3000/,https://master.d2nt2vwk70mcdz.amplifyapp.com/";
+    "http://localhost:3000/,https://master.d25i249ojp8szk.amplifyapp.com/";
 
 const [localRedirectSignIn, productionRedirectSignIn] = redirectUrl.split(",");
 
