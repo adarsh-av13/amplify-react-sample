@@ -17,8 +17,8 @@ function UrlRedirect() {
   const [text, setText] = useState('Redirecting....')
   let shortUrl = window.location.href;
   console.log(shortUrl)
-  if(!shortUrl.startsWith("https://master.d2nig2yymdsjds.amplifyapp.com/")) {
-    shortUrl = 'https://master.d2nig2yymdsjds.amplifyapp.com/' + shortUrl.substring(22)
+  if(!shortUrl.startsWith("https://master.d2nt2vwk70mcdz.amplifyapp.com/")) {
+    shortUrl = 'https://master.d2nt2vwk70mcdz.amplifyapp.com/' + shortUrl.substring(22)
   }
   console.log(shortUrl)
   useEffect(() => {
