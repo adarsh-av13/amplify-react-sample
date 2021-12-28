@@ -80,13 +80,13 @@ class App extends React.Component {
                 case "signIn":
                     this.setState({
                         user: {
-                            email: data.signInUserSession.idToken.payload.email,
-                            name:
-                                data.signInUserSession.idToken.payload
-                                    .given_name +
-                                " " +
-                                data.signInUserSession.idToken.payload
-                                    .family_name,
+                            email: data.signInUserSession.idToken.payload.email
+                            // name:
+                            //     data.signInUserSession.idToken.payload
+                            //         .given_name +
+                            //     " " +
+                            //     data.signInUserSession.idToken.payload
+                            //         .family_name,
                         },
                     });
                     break;
@@ -103,11 +103,11 @@ class App extends React.Component {
                 console.log(user);
                 this.setState({
                     user: {
-                        email: user.signInUserSession.idToken.payload.email,
-                        name:
-                            user.signInUserSession.idToken.payload.given_name +
-                            " " +
-                            user.signInUserSession.idToken.payload.family_name,
+                        email: user.signInUserSession.idToken.payload.email
+                        // name:
+                        //     user.signInUserSession.idToken.payload.given_name +
+                        //     " " +
+                        //     user.signInUserSession.idToken.payload.family_name,
                     },
                 });
             })
@@ -121,7 +121,6 @@ class App extends React.Component {
                     <div className="App">
                         <header className="App-header">
                             <span>URL Shortener</span>
-                            <span>{this.state.user.name}</span>
                             <button
                                 onClick={() => {
                                     Auth.signOut();
