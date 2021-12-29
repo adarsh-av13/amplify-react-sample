@@ -20,6 +20,9 @@ function UrlRedirect() {
   if(!shortUrl.startsWith(process.env.REACT_APP_DOMAIN)) {
     shortUrl = process.env.REACT_APP_DOMAIN + shortUrl.substring(22)
   }
+  if(shortUrl.endsWith('/')) {
+    shortUrl = shortUrl.substring(0, shortUrl.length-1)
+  }
   console.log(shortUrl)
   useEffect(() => {
     getLongUrlWrapper(shortUrl);
