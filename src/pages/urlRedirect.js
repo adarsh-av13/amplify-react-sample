@@ -17,8 +17,8 @@ function UrlRedirect() {
   const [text, setText] = useState('Redirecting....')
   let shortUrl = window.location.href;
   console.log(shortUrl)
-  if(!shortUrl.startsWith("https://master.d2vlhoqbn0aekl.amplifyapp.com/")) {
-    shortUrl = 'https://master.d2vlhoqbn0aekl.amplifyapp.com/' + shortUrl.substring(22)
+  if(!shortUrl.startsWith(process.env.REACT_APP_DOMAIN)) {
+    shortUrl = process.env.REACT_APP_DOMAIN + shortUrl.substring(22)
   }
   console.log(shortUrl)
   useEffect(() => {

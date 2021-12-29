@@ -23,7 +23,7 @@ const isLocalhost = Boolean(
 );
 
 const redirectUrl =
-    "http://localhost:3000/,https://master.d2vlhoqbn0aekl.amplifyapp.com/";
+    "http://localhost:3000/,"+process.env.REACT_APP_DOMAIN;
 
 const [localRedirectSignIn, productionRedirectSignIn] = redirectUrl.split(",");
 
