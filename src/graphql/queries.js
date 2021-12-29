@@ -20,7 +20,7 @@ export const getAllUrls = `
 
 export const getLongUrl = `
     query MyQuery($shortUrl: String!) {
-        getLongtUrl(ShortUrl: $shortUrl) {
+        getLongUrl(ShortUrl: $shortUrl) {
             LongUrl
             Message
             ShortUrl

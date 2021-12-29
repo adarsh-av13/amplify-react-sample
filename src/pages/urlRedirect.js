@@ -30,7 +30,7 @@ function UrlRedirect() {
       graphqlOperation(getLongUrl, { shortUrl: shortUrl })
     );
     console.log(res.data);
-    const data = res.data.getLongtUrl
+    const data = res.data.getLongUrl
     if(data.StatusCode === "404") {
       setText('ERROR 404: Page Not Found')
     }
