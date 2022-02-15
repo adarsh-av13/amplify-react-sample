@@ -3,17 +3,7 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 import { editDescription } from "../graphql/mutations";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import "./editUrl.css";
-
-const myAppConfig = {
-    // ...
-    aws_appsync_graphqlEndpoint: process.env.REACT_APP_API_URL,
-    aws_appsync_region: "us-east-1",
-    aws_appsync_authenticationType: "API_KEY",
-    aws_appsync_apiKey: process.env.REACT_APP_API_KEY,
-    // ...
-};
-
-Amplify.configure(myAppConfig);
+import { fixDateFormat } from "../utils";
 
 function EditUrlDetails() {
     const details = useLocation().state.data;
@@ -40,7 +30,7 @@ function EditUrlDetails() {
         console.log(tag)
         let curTags = tags;
         curTags = curTags.filter(function (ele) {
-          return ele !== tag;
+            return ele !== tag;
         });
         setTags(curTags);
     };
@@ -89,37 +79,37 @@ function EditUrlDetails() {
                                     <table className="table table-bordered">
                                         <tr>
                                             <th width="30%">Short URL</th>
-                                            <td width="2%">:</td>
+                                            <td width="2%"> </td>
                                             <td>{details.ShortUrl}</td>
                                         </tr>
                                         <tr>
                                             <th width="30%">Long URL</th>
-                                            <td width="2%">:</td>
+                                            <td width="2%"> </td>
                                             <td>{details.LongUrl}</td>
                                         </tr>
                                         <tr>
                                             <th width="30%">Created At</th>
-                                            <td width="2%">:</td>
-                                            <td>{details.CreatedAt}</td>
+                                            <td width="2%"> </td>
+                                            <td>{fixDateFormat(details.CreatedAt)}</td>
                                         </tr>
                                         <tr>
                                             <th>Modified At</th>
-                                            <td width="2%">:</td>
-                                            <td>{details.ModifiedAt}</td>
+                                            <td width="2%"> </td>
+                                            <td>{fixDateFormat(details.ModifiedAt)}</td>
                                         </tr>
                                         <tr>
                                             <th>Expires At</th>
-                                            <td width="2%">:</td>
-                                            <td>{details.ExpiresAt}</td>
+                                            <td width="2%"> </td>
+                                            <td>{fixDateFormat(details.ExpiresAt).slice(0, -5)}</td>
                                         </tr>
                                         <tr>
                                             <th>Number of Clicks</th>
-                                            <td width="2%">:</td>
+                                            <td width="2%"> </td>
                                             <td>{details.NumberOfClicks}</td>
                                         </tr>
                                         <tr>
                                             <th>Description</th>
-                                            <td width="2%">:</td>
+                                            <td width="2%"> </td>
                                             <td>
                                                 <textarea
                                                     rows="4"
@@ -135,7 +125,7 @@ function EditUrlDetails() {
                                         </tr>
                                         <tr>
                                             <th>Tags</th>
-                                            <td width="2%">:</td>
+                                            <td width="2%"> </td>
                                             <td>
                                                 <input
                                                     className="ceinput"

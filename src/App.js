@@ -14,22 +14,23 @@ const myAppConfig = {
 
 const isLocalhost = Boolean(
     window.location.hostname === "localhost" ||
-        // [::1] is the IPv6 localhost address.
-        window.location.hostname === "[::1]" ||
-        // 127.0.0.1/8 is considered localhost for IPv4.
-        window.location.hostname.match(
-            /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-        )
+    // [::1] is the IPv6 localhost address.
+    window.location.hostname === "[::1]" ||
+    // 127.0.0.1/8 is considered localhost for IPv4.
+    window.location.hostname.match(
+        /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+    )
 );
 
 const redirectUrl =
-    "http://localhost:3000/,"+process.env.REACT_APP_DOMAIN;
+    "http://localhost:3000," + process.env.REACT_APP_DOMAIN;
 
 const [localRedirectSignIn, productionRedirectSignIn] = redirectUrl.split(",");
 
 const [localRedirectSignOut, productionRedirectSignOut] =
     redirectUrl.split(",");
 
+console.log(localRedirectSignOut, productionRedirectSignOut);
 console.log(localRedirectSignIn, productionRedirectSignIn);
 
 const awsConfig = {
@@ -120,29 +121,36 @@ class App extends React.Component {
                 {this.state.user ? (
                     <div className="App">
                         <header className="App-header">
-                            <span>URL Shortener</span>
-                            <button
-                                onClick={() => {
-                                    Auth.signOut();
-                                }}
-                            >
-                                Sign Out
-                            </button>
+                            <span class="App-name">URL Shortener</span>
+                            <div>
                             <Link
                                 to="/create-url"
                                 state={{
                                     data: { user: this.state.user.email },
                                 }}
                             >
-                                <button>Create Short URL</button>
+                                <button className="createurl">Create Short URL</button>
                             </Link>
+                            <button className="signout"
+                                onClick={() => {
+                                    Auth.signOut();
+                                }}
+                            >
+                                Sign Out
+                            </button>
+                            </div>
                         </header>
                         <UrlList user={this.state.user.email} />
                     </div>
                 ) : (
-                    <button onClick={() => Auth.federatedSignIn()}>
-                        Sign in with google
-                    </button>
+                    <div className="login-container">
+                        <div className="login-box">
+                            <h1 className="App-name">URL Shortener</h1>
+                            <button onClick={() => Auth.federatedSignIn()}>
+                                Sign in with google
+                            </button>
+                        </div>
+                    </div>
                 )}
             </>
         );

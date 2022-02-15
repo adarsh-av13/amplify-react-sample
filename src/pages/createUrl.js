@@ -35,7 +35,7 @@ function CreateUrl() {
         if (event.key === "Enter") {
             let curTags = tags;
             let currentTag = curTag.trim()
-            if(currentTag !== "")
+            if(currentTag !== "" && !curTags.includes(currentTag))
               curTags.push(currentTag);
               setTags(curTags);
             setCurTag("");

@@ -1,6 +1,6 @@
 .App {
   margin: 0 auto;
-  border: 1px solid #282c34;
+  /* border: 1px solid #282c34; */
   text-align: center;
   width: 80vw;
 }
@@ -17,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #aaaaaa;
+  background-color: #e6f8e8;
   min-height: 20vh;
   display: flex;
   align-items: center;
@@ -116,18 +116,15 @@ h2 a {
 .yellow { color: #FFF842; }
 
 .container th h1 {
-    font-weight: bold;
-    font-size: 1em;
+    font-weight: 900;
+    font-size: 0.9em;
   text-align: left;
   color: #185875;
 }
 
 .container td {
     font-weight: normal;
-    font-size: 1em;
-  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-     -moz-box-shadow: 0 2px 2px -2px #0E1119;
-          box-shadow: 0 2px 2px -2px #0E1119;
+    font-size: 1.1em;
 }
 
 .container {
@@ -146,37 +143,77 @@ h2 a {
 }
 
 /* Background-color of the odd rows */
-.container tr:nth-child(odd) {
-    background-color: #323C50;
-}
-
 /* Background-color of the even rows */
-.container tr:nth-child(even) {
-    background-color: #2C3446;
+
+.container th,td {
+    background-color: #e6f8e8;
+    color: #185875;
+    font-weight: 900;
 }
 
-.container th {
-    background-color: #1F2739;
-}
-
-.container td:first-child { color: #FB667A; }
 
 .columnar {
   display: flex;
   flex-direction: column;
 }
 
-.actions {
-  display: flex;
-  justify-content: flex-end;
-}
-
 a {
   cursor: pointer;
-  color: white;
+  /* color: white; */
   text-decoration: none;
+  font-weight: 900;
 }
 
-.pink-text {
-  color: #FB667A;
+a:visited {
+  color: #185875;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.App-name {
+  color: #00ad7f;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.login-box {
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+  background-color: #ffffff;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-box button {
+  border: none;
+  width: 50%;
+  font-weight: 700;
+  background-color: #00ad7f;
+}
+
+.signout {
+  background-color: grey;
+  font-size: 1rem;
+  border: none;
+}
+
+.createurl {
+  background-color: #00ad7f;
+  font-size: 1rem;
+  border: none;
+}
+
+.filter {
+  color: white;
+  font-weight: 900;
 }

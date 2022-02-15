@@ -18,7 +18,7 @@ function UrlRedirect() {
   let shortUrl = window.location.href;
   console.log(shortUrl)
   if(!shortUrl.startsWith(process.env.REACT_APP_DOMAIN)) {
-    shortUrl = process.env.REACT_APP_DOMAIN + shortUrl.substring(22)
+    shortUrl = process.env.REACT_APP_DOMAIN + '/' + shortUrl.substring(22)
   }
   if(shortUrl.endsWith('/')) {
     shortUrl = shortUrl.substring(0, shortUrl.length-1)

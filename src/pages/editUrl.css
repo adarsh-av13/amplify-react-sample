@@ -7,6 +7,9 @@
     justify-content: center;
 }
 
+h3 {
+    color: white;
+}
 table {
     width: 55vw;
 }
@@ -16,19 +19,24 @@ table {
 }
 
 .save-btn {
-    background-color: #39bb7d;
+    background-color: white;
+    color: #00ad7f;
+    border: none;
 }
 
 .cancel-btn {
     background-color: #f34440;
+    border: none;
 }
 
 .home-btn {
-    background-color: #aa480f;
+    background-color: grey;
+    border: none;
 }
 
 .edit-btn {
     background-color: #2d6adb;
+    border: none;
 }
 
 .ceinput {

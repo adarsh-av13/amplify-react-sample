@@ -1,20 +1,24 @@
-@use postcss-preset-env {
-  stage: 0;
-}
-
 .form {
   display: flex;
   flex-direction: column;
   margin: 2rem 20vw;
   flex-wrap: wrap;
+  background-color: white;
+  color: #00ad7f;
+}
+
+.form h1 {
+  color: #00ad7f;
 }
 .form > input {
   margin: 0.5rem;
+  background-color: #e6f8e8;
 }
 
 .ctextarea {
   margin: 0.5rem;
   padding: 0.75rem 1rem;
+  background-color: #e6f8e8;
 }
 .cspan {
     /* font-size: 2rem; */
@@ -28,9 +32,9 @@
 }
 
 .cbutton {
-  background: hotpink;
+  background: #00ad7f;
+  border: none;
   color: white;
-  box-shadow: 0 0.75rem 0.5rem -0.5rem hsl(0 50% 80%);
 }
 
 .ctag-wrapper {
@@ -39,23 +43,27 @@
     flex-wrap: wrap;
 }
 .ctags {
-    background-color: white;
+    background-color: #e6f8e8;
     display: flex;
     align-items: center;
-    color: blue;
+    justify-content: center;
+  color: #00ad7f;
     margin: 0.2rem;
     font-size: 1rem;
     font-weight: bold;
     padding: 0.4rem;
-    border-radius: 5px;
+    padding-top: 0;
+    padding-left: 1.2rem;
+    border-radius: 50px;
 }
 
 
 .remove-x {
     color: red;
-    margin-left: 1rem;
+    margin-left: 0.7rem;
     display: inline;
     font-size: 0.8rem;
+    margin-bottom: 1rem;
     
 }
 

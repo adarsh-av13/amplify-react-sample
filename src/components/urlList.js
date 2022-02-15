@@ -122,8 +122,13 @@ class UrlList extends React.Component {
     return (
       <div>
         <div>
-          <span>
-            Filter:{" "}
+          <span className="filter">
+            Add Filter:{" "}
+            <select value="Add Tag" onChange={this.handleTagChange}>
+            {this.state.tags.map((tag) => (
+              <option key={tag}>{tag}</option>
+            ))}
+          </select>
             {this.state.activeTags.map((tag) => (
               <span className="ctags" key={tag}>
                 <span>{tag}</span>
@@ -133,11 +138,7 @@ class UrlList extends React.Component {
               </span>
             ))}
           </span>
-          <select value="Add Tag" onChange={this.handleTagChange}>
-            {this.state.tags.map((tag) => (
-              <option key={tag}>{tag}</option>
-            ))}
-          </select>
+          
         </div>
         <table className="container">
           <thead>
