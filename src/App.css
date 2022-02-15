@@ -119,6 +119,7 @@ h2 a {
     font-weight: 900;
     font-size: 0.9em;
   text-align: left;
+  color: #185875 !important;
 }
 
 .container td {
