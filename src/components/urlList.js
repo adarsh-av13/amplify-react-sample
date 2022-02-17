@@ -143,16 +143,16 @@ class UrlList extends React.Component {
         <table className="container">
           <thead>
             <tr>
-              <th>
+              <th class="tshorturl">
                 <h1>ShortUrl</h1>
               </th>
-              <th>
+              <th class="tlongurl">
                 <h1>LongUrl</h1>
               </th>
               {/* <th>
                   <h1>CreatedBy</h1>
                 </th> */}
-              <th>
+              <th class="tactions">
                 <h1>Actions</h1>
               </th>
             </tr>
@@ -160,22 +160,26 @@ class UrlList extends React.Component {
           <tbody>
             {this.state.displaylist.map((d) => (
               <tr key={d.ShortUrl}>
-                <td>
-                  <Link
-                    className="pink-text"
-                    to="/url-details"
+                <td class="tshorturl">
+                  <a
+                    href={d.ShortUrl}
                     state={{ data: d }}
                   >
                     {d.ShortUrl}
-                  </Link>
+                  </a>
                 </td>
-                <td>
-                  <Link to="/url-details" state={{ data: d }}>
+                <td class="tlongurl">
+                  <a href={d.LongUrl} state={{ data: d }}>
                     {d.LongUrl}
-                  </Link>
+                  </a>
                 </td>
                 {/* <td>{d.CreatedBy}</td> */}
-                <td className="actions">
+                <td className="actions tactions">
+                <Link to="/url-details" state={{ data: d }}>
+                    <button className="dts-button" value="details">
+                      details
+                    </button>
+                  </Link>
                   <Link to="/edit-url-details" state={{ data: d }}>
                     <button className="edit-button" value="edit">
                       edit

@@ -64,6 +64,13 @@ button {
   color: white;
 }
 
+.dts-button {
+  border: none;
+  padding: 0.5rem;
+  background-color: #dbaa2d;
+  color: white;
+}
+
 .edit-button {
   border: none;
   padding: 0.5rem;
@@ -132,6 +139,13 @@ th, td {
     font-size: 1.1em;
 }
 
+.tlongurl {
+  width: 40%;
+}
+
+.tactions {
+  width: 25%;
+}
 .container {
     text-align: left;
     overflow: hidden;
@@ -164,7 +178,7 @@ th, td {
 
 a {
   cursor: pointer;
-  /* color: white; */
+  color: #185875;
   text-decoration: none;
   font-weight: 900;
 }
