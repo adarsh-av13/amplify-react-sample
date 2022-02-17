@@ -122,6 +122,11 @@ h2 a {
   color: #185875 !important;
 }
 
+th, td {
+  overflow: hidden;
+    max-width: 0;
+    text-overflow: ellipsis;
+}
 .container td {
     font-weight: normal;
     font-size: 1.1em;

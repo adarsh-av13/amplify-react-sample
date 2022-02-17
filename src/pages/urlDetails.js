@@ -40,42 +40,34 @@ function UrlDetails() {
                                     <table className="table table-bordered">
                                         <tr>
                                             <th width="30%">Short URL</th>
-                                            <td width="2%"> </td>
                                             <td>{details.ShortUrl}</td>
                                         </tr>
                                         <tr>
                                             <th width="30%">Long URL</th>
-                                            <td width="2%"> </td>
                                             <td>{details.LongUrl}</td>
                                         </tr>
                                         <tr>
                                             <th width="30%">Created At</th>
-                                            <td width="2%"> </td>
                                             <td>{fixDateFormat(details.CreatedAt)}</td>
                                         </tr>
                                         <tr>
                                             <th>Modified At</th>
-                                            <td width="2%"> </td>
                                             <td>{fixDateFormat(details.ModifiedAt)}</td>
                                         </tr>
                                         <tr>
                                             <th>Expires On</th>
-                                            <td width="2%"> </td>
                                             <td>{fixDateFormat(details.ExpiresAt).slice(0,-5)}</td>
                                         </tr>
                                         <tr>
                                             <th>Number of Clicks</th>
-                                            <td width="2%"> </td>
                                             <td>{details.NumberOfClicks}</td>
                                         </tr>
                                         <tr>
                                             <th>Description</th>
-                                            <td width="2%"> </td>
                                             <td>{details.Description}</td>
                                         </tr>
                                         <tr>
                                             <th>Tags</th>
-                                            <td width="2%"> </td>
                                             <td>
                                                 <div className="ctag-wrapper">
                                                     {details.Tags.map((tag) => (

@@ -10,8 +10,15 @@
 h3 {
     color: white;
 }
-table {
+.table {
     width: 55vw;
+    max-width: 55vw;
+    table-layout: fixed;
+}
+
+.table th, .table td {
+    border-right: 2px solid #00ad7f;
+    border-left: 2px solid #00ad7f;
 }
 .card-header {
     display: flex;
