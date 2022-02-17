@@ -169,7 +169,7 @@ class UrlList extends React.Component {
                   </a>
                 </td>
                 <td class="tlongurl">
-                  <a href={d.LongUrl} state={{ data: d }}>
+                  <a href={d.LongUrl.startsWith('http') ? d.LongUrl : '//'+d.LongUrl} state={{ data: d }}>
                     {d.LongUrl}
                   </a>
                 </td>
